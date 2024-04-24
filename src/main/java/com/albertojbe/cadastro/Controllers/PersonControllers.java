@@ -1,7 +1,7 @@
 package com.albertojbe.cadastro.Controllers;
 
 import com.albertojbe.cadastro.Services.PersonServices;
-import com.albertojbe.cadastro.models.Person;
+import com.albertojbe.cadastro.Models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +18,7 @@ public class PersonControllers {
     @RequestMapping(value = "/{id}",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public Person find(@PathVariable(value = "id") String id){
+    public Person find(@PathVariable(value = "id") Long id){
             return service.findById(id);
     }
 
@@ -43,7 +43,7 @@ public class PersonControllers {
 
     @RequestMapping(value = "/{id}",
             method = RequestMethod.DELETE)
-    public void delete(@PathVariable(value = "id") String id){
+    public void delete(@PathVariable(value = "id") Long id){
         service.delete(id);
     }
 }
